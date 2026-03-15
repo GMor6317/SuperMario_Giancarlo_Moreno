@@ -5,12 +5,13 @@ public class MovimientoToad : MonoBehaviour
     public float velocidadX = 2f;
     public Rigidbody2D rb;
     public Transform posicion;
-
+    public float xMin = -9.2f;
+    public float xMax = 2.0f;
     private bool movimientoDerecha = true;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rb.GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -19,7 +20,7 @@ public class MovimientoToad : MonoBehaviour
         if (movimientoDerecha)
         {
             rb.linearVelocity = new Vector2(velocidadX, rb.linearVelocityY); 
-            if (posicion.position.x >= 7.7)
+            if (posicion.position.x >= xMax)
             {
                 movimientoDerecha = false;
             }   
@@ -27,7 +28,7 @@ public class MovimientoToad : MonoBehaviour
         else
         {
             rb.linearVelocity = new Vector2(-velocidadX, rb.linearVelocityY);
-            if (posicion.position.x <= -9.2)
+            if (posicion.position.x <= xMin)
             {
                 movimientoDerecha = true;
             }
