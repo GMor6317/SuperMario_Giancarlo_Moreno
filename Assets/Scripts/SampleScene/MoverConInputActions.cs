@@ -13,20 +13,23 @@ public class MoverConInputActions : MonoBehaviour
     private float velocidadX = 7f; //Definiendo la velocidad maxima que tendra en el eje X
     private float velocidadY = 12f;
 
+    private EstadoPersonaje estado;
+
     private Rigidbody2D rb;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         //Habilitar el InputAction
-        accionMover.Enable();
         rb = GetComponent<Rigidbody2D>();
+        estado = GetComponentInChildren<EstadoPersonaje>();
         
     }
 
 
     void OnEnable() //Si el objeto esta habilitado se pueda utilizar, si no no
     {
+        accionMover.Enable();
         accionSaltar.Enable();
         accionSaltar.performed += saltar; //Se le dice al objeto que agregue en su lista de funciones la funcion saltar      
     }
@@ -40,8 +43,12 @@ public class MoverConInputActions : MonoBehaviour
 
     public void saltar(InputAction.CallbackContext context) //Debe contener el parametro, si no no se reconoce
     {
+        if (estado.estaEnPiso)
+        {
+            rb.linearVelocityY = velocidadY * 1; //Se cambia la velocidad en Y       
+        }
         //Rigidbody2D rb = GetComponent<Rigidbody2D>(); //Se define rigidbody de manera local para poder hacer un salto
-        rb.linearVelocityY = velocidadY * 1; //Se cambia la velocidad en Y
+        
     }
 
 

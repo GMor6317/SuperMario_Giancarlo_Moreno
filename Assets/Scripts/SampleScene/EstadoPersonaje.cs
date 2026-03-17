@@ -13,6 +13,6 @@ public class EstadoPersonaje : MonoBehaviour
     void OnTriggerExit2D(Collider2D collision)
     {
         estaEnPiso = false;
-        print(estaEnPiso);        
+        print(estaEnPiso);     
     }
 }
