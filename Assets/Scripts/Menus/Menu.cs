@@ -12,6 +12,7 @@ public class Menu : MonoBehaviour
     private Button botonCreditos;
     private Button botonCerrarAyuda;
     private Button botonCerrarCreditos;
+    private Button cerrarAyuda;
 
     private VisualElement panelMenu;
     private VisualElement panelAyuda;
@@ -28,13 +29,14 @@ public class Menu : MonoBehaviour
         botonCreditos = root.Q<Button>("BotonCreditos");
 
         //Botones de cerrar pestaña
-        botonCerrarAyuda = root.Q<Button>("BotonCerrarAyuda");
-        botonCerrarCreditos = root.Q<Button>("BotonCerrarCreditos");
+        cerrarAyuda = root.Q<Button>("CerrarAyuda");
+        botonCerrarAyuda = root.Q<Button>("CerrarAyuda");
+        botonCerrarCreditos = root.Q<Button>("CerrarCreditos");
 
         //Paneles
         panelMenu = root.Q<VisualElement>("Menu");
         panelAyuda = root.Q<VisualElement>("MenuAyuda");
-        panelCreditos = root.Q<VisualElement>("panelCreditos");
+        panelCreditos = root.Q<VisualElement>("MenuCreditos");
 
         //Acciones
         //botonJugar.RegisterCallback<ClickEvent>(EmpiezaJuego);
@@ -44,6 +46,8 @@ public class Menu : MonoBehaviour
 
         botonCerrarAyuda.clicked += VolverAlMenu;
         botonCerrarCreditos.clicked += VolverAlMenu;
+        cerrarAyuda.clicked += VolverAlMenu;
+        
     }
 
     private void EmpiezaJuego()
