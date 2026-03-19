@@ -1,22 +1,35 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class Creditos : MonoBehaviour
+public class CreditsScroller : MonoBehaviour
 {
-    private ScrollView scrollView;
-    public float velocidad = 30f;
+    public float speed = 200f; // Píxeles por segundo
+    private VisualElement creditsTrack;
+    private float currentY = 0f;
 
     void OnEnable()
     {
+        // Obtener el documento de UI
         var root = GetComponent<UIDocument>().rootVisualElement;
-        scrollView = root.Q<ScrollView>("ScrollCreditos");
+        creditsTrack = root.Q<VisualElement>("Creditos");
+        
+        // Empezar desde el fondo de la pantalla
+        currentY = Screen.height;
     }
+
     void Update()
     {
-        if (scrollView != null)
+        if (creditsTrack != null)
         {
-            // Avanza el scroll poco a poco
-            scrollView.verticalScroller.value += velocidad * Time.deltaTime;
+            // Mover hacia arriba
+            currentY -= speed * Time.deltaTime;
+            creditsTrack.style.top = currentY;
+
+            // Opcional: Reiniciar o detener si ya pasaron todos los créditos
+            if (currentY < -creditsTrack.layout.height * 2)
+            {
+                currentY = Screen.height;
+            }
         }
     }
 }
