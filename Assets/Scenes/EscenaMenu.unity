@@ -331,6 +331,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CreditsScroller
   speed: 200
+--- !u!114 &143558336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143558326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae198742af92f49b0971222f594e67fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CerrarJuego
 --- !u!1 &145930511
 GameObject:
   m_ObjectHideFlags: 0
@@ -1617,6 +1629,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 204228051311105451, guid: 1dc2d302376024cc28abba6470070312, type: 3}
       insertIndex: -1
       addedObject: {fileID: 143558333}
+    - targetCorrespondingSourceObject: {fileID: 204228051311105451, guid: 1dc2d302376024cc28abba6470070312, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 143558336}
   m_SourcePrefab: {fileID: 100100000, guid: 1dc2d302376024cc28abba6470070312, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

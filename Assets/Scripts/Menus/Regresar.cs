@@ -6,8 +6,6 @@ public class Regresar : MonoBehaviour
 {
   private UIDocument menu;
   private Button botonRegresar;
-  private Button botonCerrarAyuda;
-  private Button botonCerrarCreditos;
 
     void OnEnable()
     {

@@ -1,36 +1,38 @@
+//Giancarlo Moreno Vázquez
 using UnityEngine;
 
 public class MovimientoToad : MonoBehaviour
 {
-    public float velocidadX = 2f;
+    //Declarando variables
     public Rigidbody2D rb;
-    public Transform posicion;
+    public float velocidadX = 2f;   
     public float xMin = -9.2f;
     public float xMax = 2.0f;
     private bool movimientoDerecha = true;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();   //Obteniendo componentes del personaje
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
+        //Controlando el movimiento horizontal del enemigo
         if (movimientoDerecha)
         {
-            rb.linearVelocity = new Vector2(velocidadX, rb.linearVelocityY); 
-            if (posicion.position.x >= xMax)
+            rb.linearVelocity = new Vector2(velocidadX, rb.linearVelocityY);    
+            if (transform.position.x >= xMax)    //Delimitando hasta donde puede moverse el enemigo
             {
-                movimientoDerecha = false;
+                movimientoDerecha = false;  //Cambiando de lado
             }   
         }
         else
         {
             rb.linearVelocity = new Vector2(-velocidadX, rb.linearVelocityY);
-            if (posicion.position.x <= xMin)
+            if (transform.position.x <= xMin)    //Delimitando hasta donde puede moverse el enemigo
             {
-                movimientoDerecha = true;
+                movimientoDerecha = true;   //Regresando al movimiento original
             }
         }
     }
